@@ -28,7 +28,7 @@ app.use(express.static('public'));
 
 app.use(bodyParser.json());
 app.use(cors({
-  origin: ['http://localhost:3000']
+  origin: [ 'https://ek-new-frontend-dummy.vercel.app']
 }));
 
 
