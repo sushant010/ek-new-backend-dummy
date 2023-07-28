@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const bcryptjs = require('bcryptjs');
+const bcrypt = require('bcrypt');
 const validator = require('validator');
 const crypto = require('crypto');
 const { v1: uuidv1 } = require('uuid');
@@ -440,7 +440,7 @@ userSchema.set('toJSON', { virtuals: true });
 
 userSchema.pre('save', async function (next) {
   if (!this.isModified('password')) return next();
-  this.password = await bcryptjs.hash(this.password, 12);
+  this.password = await bcrypt.hash(this.password, 12);
   next();
 });
 
@@ -484,7 +484,7 @@ userSchema.methods.toJSON = function () {
 };
 
 userSchema.methods.correctPassword = async function (candidatePass, userPass) {
-  return await bcryptjs.compare(candidatePass, userPass);
+  return await bcrypt.compare(candidatePass, userPass);
 };
 
 module.exports = mongoose.model('User', userSchema);

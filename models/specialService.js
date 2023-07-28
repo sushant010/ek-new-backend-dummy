@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const bcryptjs = require("bcryptjs");
+const bcrypt = require("bcrypt");
 const validator = require("validator");
 
 const specialServiceSchema = mongoose.Schema(
@@ -171,12 +171,12 @@ specialServiceSchema.set("toJSON", { virtuals: true });
 
 specialServiceSchema.pre("save", async function (next) {
   if (!this.isModified("password")) return next();
-  this.password = await bcryptjs.hash(this.password, 12);
+  this.password = await bcrypt.hash(this.password, 12);
   next();
 });
 
 specialServiceSchema.methods.correctPassword = async function (candidatePass, userPass) {
-  return await bcryptjs.compare(candidatePass, userPass);
+  return await bcrypt.compare(candidatePass, userPass);
 };
 
 module.exports = mongoose.model("specialservices", specialServiceSchema);
