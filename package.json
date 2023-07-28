@@ -4,8 +4,8 @@
   "description": "This is an ekalaakar backend",
   "main": "index.js",
   "scripts": {
-    "server:dev": "nodemon index",
-    "server:prod": "node index",
+    "server:dev": "node app",
+    "server:prod": "node app",
     "client": "npm start --prefix client",
     "start": "concurrently \"npm run server:prod\" \"npm run client\"",
     "dev": "concurrently \"npm run server:dev\" \"npm run client\"",
