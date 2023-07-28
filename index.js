@@ -27,10 +27,7 @@ app.use(express.static('public'));
 //app.use(bodyParser.urlencoded({extended:true}));
 
 app.use(bodyParser.json());
-app.use(cors({
-  origin: [ 'https://ek-new-frontend-dummy.vercel.app']
-}));
-
+app.use(cors());
 
 // database configuration
 const db = process.env.MONGODB;
