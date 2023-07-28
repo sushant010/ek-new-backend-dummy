@@ -4,12 +4,8 @@
   "description": "This is an ekalaakar backend",
   "main": "index.js",
   "scripts": {
-    "server:dev": "nodemon index",
-    "server:prod": "node index",
-    "client": "npm start --prefix client",
-    "start": "concurrently \"npm run server:prod\" \"npm run client\"",
-    "dev": "concurrently \"npm run server:dev\" \"npm run client\"",
-    "install-deps": "npm install && cd client && npm install"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "author": "",
   "license": "ISC",
